@@ -1,0 +1,121 @@
+.contact-us {
+  &__form {
+    &.loading{
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .btn {
+      margin-bottom: 1rem;
+    }
+
+    .message {
+      display: none;
+      width: 100%;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      // display: inline-block;
+      border-radius: .5rem;
+      display: none;
+
+      &--error,
+      &--input-error {
+        border: .1rem solid red;
+        background: rgba(red, 0.2);
+        color: red;
+      }
+
+      &--success {
+        border: .1rem solid #005165;
+        background: rgba(#005165, 0.2);
+        color: #005165;
+      }
+    }
+  }
+
+  &__form-input {
+    width: 100%;
+    border: none;
+    border-bottom: .1rem solid #005165;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2em;
+    letter-spacing: .1em;
+    color: #3B3B3B;
+    padding: .5rem 1rem;
+    margin-bottom: 1rem;
+    background: transparent;
+    font-weight: 700;
+    resize: none;
+    transition: all .2s;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus+.form-item__label,
+    &:active+.form-item__label {
+      transform: translateY(-1rem);
+      font-size: 1.1rem;
+    }
+
+    &:placeholder-shown+.form-item__label {
+      transform: none;
+      font-size: 1.2rem;
+    }
+
+    &:focus {
+      background-color: transparent;
+      outline: none;
+    }
+
+    &.error {
+      border-color: red;
+
+      // color: red;
+      &~.form-item__label {
+        color: red;
+      }
+
+    }
+  }
+
+  .form-item {
+    position: relative;
+    display: block;
+  }
+
+  .form-item__label {
+    position: absolute;
+    left: 1rem;
+    top: .5rem;
+    width: max-content;
+    transition: .2s linear;
+    pointer-events: none;
+    transform: translateY(-1rem);
+    font-size: .9rem;
+  }
+
+  @media screen and (min-width: 600px) {
+    &__form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 60rem;
+      margin: 0 auto;
+
+      .btn {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .form-item {
+      width: 48%;
+
+      &:last-of-type {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
